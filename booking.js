@@ -12,6 +12,19 @@ const locations={
     10 : {left : '80vw',margintop : '40%',angle : '0deg'}
 }
 
+let slot,zone;
+
+function makecaranimation(loc,area){
+    let car_animation=document.createElement('style');
+    let movement=document.createTextNode(`@keyframes comecar{
+        0%{left: 100vw;transform: rotate(90deg);margin-top: 23.5%;}
+        70%{left: ${locations[loc].left};transform: rotate(90deg);}
+        80%{transform: rotate(${locations[loc].angle});margin-top: 23.5%;}
+    }`);
+    car_animation.appendChild(movement);
+    document.getElementById(area).appendChild(car_animation)
+}
+
 
 async function sendDataToIoT(data){
     try {
@@ -24,10 +37,11 @@ async function sendDataToIoT(data){
 
 async function handleData(){
     try{
-        console.log('running')
+        
         const socket=  await socketConnect();
         socket.onmessage = (event)=>{
             updateslots(event.data)
+            console.log(event.data)
 
         }
     } catch (err){
@@ -38,6 +52,7 @@ async function handleData(){
 setTimeout(handleData,1000)
 
 function managepark(slot,zone){
+    
     let slotst=(slot!=10)?"0":""
     slotst=slotst+slot
     let park=""+zone+slotst
@@ -45,8 +60,8 @@ function managepark(slot,zone){
     sendDataToIoT(park)
     let slotid="but"+zone+slot
     console.log(slotid)
-    document.getElementById(slotid).style.backgroundColor="red"
-    managecar(slot,zone)
+    document.getElementById(slotid).style.backgroundColor="red";
+    managecar(slot,zone,slotid)
 }
 
 
@@ -54,8 +69,8 @@ function managepark(slot,zone){
 function updateslots(rcvddata) {
     console.log(rcvddata[0])
     for(let i=0;i<20;i++){
-        let zone=(i<10)?'j':'c';
-        let slot=i+1;
+        zone=(i<10)?'j':'c';
+        slot=i+1;
         if(zone=='c') slot=slot-10;
         let slotid='but'+zone+slot
         if(rcvddata[i]=='g') document.getElementById(slotid).style.backgroundColor="green";
@@ -63,9 +78,27 @@ function updateslots(rcvddata) {
     }
 }
  
-function managecar(slot,zone){
+var w,h;
+var slotwidth,slotheight;
+var parkareawidth,parkareaheight;
+var topdist,leftdist;
+var locx,locy;
+
+function managecar(slot,zone,slotid){
+    
     let parkarea=(zone=='j')?'park1':'park2'
+    makecaranimation(slot,parkarea)
     console.log(parkarea)
+    // parkareawidth=document.getElementById(parkarea).offsetWidth
+    // parkareaheight=document.getElementById(parkarea).offsetHeight
+    // slotwidth=document.getElementById(slotid).offsetWidth
+    // slotheight=document.getElementById(slotid).offsetHeight
+    // topdist=document.getElementById(slotid).offsetTop
+    // leftdist=document.getElementById(slotid).offsetLeft
+    // locx=leftdist-20
+    // locy=topdist-600
+    // console.log(parkareawidth+","+parkareawidth+","+slotwidth+","+slotheight+","+topdist+","+leftdist)
+    // console.log(locx,locy)
     let targetparklocation=document.getElementById(parkarea)
     console.log(targetparklocation)
     let img = document.createElement('img')
@@ -74,9 +107,20 @@ function managecar(slot,zone){
     img.id=parkarea+'car'+slot
     img.style.width='15vw'
     img.style.height='15vw'
+    //img.style.animation='comecar 3s'
     img.style.left=locations[slot].left
     img.style.marginTop=locations[slot].margintop
+    // img.style.left=`${locx}px`
+    // img.style.marginTop=`${locy}px`
     img.style.transform = `rotate(${locations[slot].angle})`;
     targetparklocation.prepend(img)
+
+    
+
+
+
+
 }
 window.managepark = managepark
+
+

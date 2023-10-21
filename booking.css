@@ -55,6 +55,7 @@
 .parkingzone{
     background-color: grey;
     border-bottom: 2px black dashed;
+    position: relative;
 }
 .parkingzone .zonelabel{
     padding: 2vh;
@@ -117,6 +118,15 @@
 }
 @keyframes comecar{
     0%{left: 100vw;transform: rotate(90deg);margin-top: 20%;}
-    70%{left: 4vw;transform: rotate(90deg);margin-top: 20%;}
-    80%{left: 4vw;transform: rotate(180deg);margin-top: 20%;}
+    70%{left: 4vw;transform: rotate(90deg);}
+    80%{transform: rotate(180deg);margin-top: 20%;}
+}
+
+.check{
+    width: 15vw;
+    height: 15vw;
+    background-color: aliceblue;
+    left: 150px;
+    top: 986.5px;
+    position: absolute;
 }
