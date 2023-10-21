@@ -1,4 +1,4 @@
-
+import  socketConnect  from "./connection.js";
 const locations={
     1 : {left : '4vw',margintop : '7%',angle : '180deg'},
     2 : {left : '23vw',margintop : '7%',angle : '180deg'},
@@ -12,57 +12,59 @@ const locations={
     10 : {left : '80vw',margintop : '40%',angle : '0deg'}
 }
 
-try {
-    const socket = new WebSocket("ws://192.168.1.2:81");
-    socket.onopen = () => {
-        console.log("WebSocket connection established");
-        
-    };
-    socket.onclose = () => {
-        console.log("WebSocket connection closed");
-    };
-    socket.onmessage = (event) => {
-        console.log(event.data);
-        updateslots(event.data)
-    };
-    function managepark(slot,zone){
-        slotst=(slot!=10)?"0":""
-        slotst=slotst+slot
-        park=""+zone+slotst
-        console.log(park)
-        socket.send(park)
-        slotid="but"+zone+slot
-        console.log(slotid)
-        document.getElementById(slotid).style.backgroundColor="red"
-        managecar(slot,zone)
+
+async function sendDataToIoT(data){
+    try {
+        const socket = await socketConnect();
+        socket.send(data);
+    } catch (err) {
+        console.log(err);
     }
-    
-} 
-catch(err) {
-        console.log('Socket Error');
+}
+
+async function handleData(){
+    try{
+        console.log('running')
+        const socket=  await socketConnect();
+        socket.onmessage = (event)=>{
+            updateslots(event.data)
+
+        }
+    } catch (err){
+        console.log(err)
+    }
+}
+
+setTimeout(handleData,1000)
+
+function managepark(slot,zone){
+    let slotst=(slot!=10)?"0":""
+    slotst=slotst+slot
+    let park=""+zone+slotst
+    console.log(park)
+    sendDataToIoT(park)
+    let slotid="but"+zone+slot
+    console.log(slotid)
+    document.getElementById(slotid).style.backgroundColor="red"
+    managecar(slot,zone)
 }
 
 
 
-document.getElementById("send").addEventListener("click", () => {
-  socket.send(document.getElementById("message").value);
-  console.log("message sent");
-});
-
 function updateslots(rcvddata) {
     console.log(rcvddata[0])
-    for(i=0;i<20;i++){
-        zone=(i<10)?'j':'c';
-        slot=i+1;
+    for(let i=0;i<20;i++){
+        let zone=(i<10)?'j':'c';
+        let slot=i+1;
         if(zone=='c') slot=slot-10;
-        slotid='but'+zone+slot
+        let slotid='but'+zone+slot
         if(rcvddata[i]=='g') document.getElementById(slotid).style.backgroundColor="green";
         else document.getElementById(slotid).style.backgroundColor="red";
     }
 }
  
 function managecar(slot,zone){
-    parkarea=(zone=='j')?'park1':'park2'
+    let parkarea=(zone=='j')?'park1':'park2'
     console.log(parkarea)
     let targetparklocation=document.getElementById(parkarea)
     console.log(targetparklocation)
@@ -74,9 +76,7 @@ function managecar(slot,zone){
     img.style.height='15vw'
     img.style.left=locations[slot].left
     img.style.marginTop=locations[slot].margintop
-    img.style.transform.rotate=locations[slot].angle
+    img.style.transform = `rotate(${locations[slot].angle})`;
     targetparklocation.prepend(img)
 }
-
-
-
+window.managepark = managepark
