@@ -5,12 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="booking.css">
+    <link rel="stylesheet" href="index.css">
     
 </head>
 <body>
     <!-- <div class="check"></div> -->
+    <nav id="header">
+    
+        <a href="#"><img src="images/logo (1).png" alt="">Parking Pal</a>
+    
+        <div class="name">
+            <h3>Welcome to Parking Pal</h3>
+        </div>
+        <div>
+            <ul id="navbar">
+               
+                <li><p>Username</p>
+            </li>
+                <li>
+                  <div></div>
+                </li>
+
+               
+              
+            </ul>
+        </div>
+
+     
+    
+     </nav>
      <main id="main">
+
+
+      
+       
         <div class="mainsection">
+
             <div class="right">
                 <div class="contentright">
                     <h2>Parking Pal</h2>
@@ -27,7 +57,7 @@
             </div>
         </div>
         <div class="parkingzone" id="park1">
-            <!-- <img src="car2.png" alt="" class="carup" > -->
+            <img src="car2.png" alt="" class="carup" >
             <div class="zonelabel" align="center">
                 Jubilee Block
             </div>
@@ -80,7 +110,7 @@
 
         </div>
         <div class="parkingzone" id="park2">
-            <!-- <img src="car2.png" class="carup"> -->
+            <img src="car2.png" class="carup">
 
             <div class="zonelabel" align="center">
                 CSE Block
@@ -130,11 +160,14 @@
                 </div>
             </div>
         
-        </div>
+        </div>  
     </main>
-    <script src="booking.js" type="module"></script>
+    <script src="booking.js"  type="module"></script>
     <script type="module" src="connection.js"></script>
-    <!-- <script type="module">
+     <!-- <script>
+
+
+
         import {sendDataToIoT} from './booking.js'
         function managepark(slot,zone){
         slotst=(slot!=10)?"0":""
@@ -148,6 +181,6 @@
         managecar(slot,zone)
     }
     export default managepark;
-    </script> -->
+    </script>  -->
 </body>
 </html>

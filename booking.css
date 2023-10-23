@@ -6,6 +6,7 @@
 }
 
 
+/* nav css starts  */
 
 
 
@@ -13,18 +14,13 @@
 
 
 
-#header{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px 80px;
-    /* background-color: #E3E6F3; */
-   /* box-shadow: 0 15px 15px rgba(0, 0, 0, 0.06); */
-   z-index: 999;
-   position: sticky;
-   left: 0;
- top: 0;
- /* padding: 10px; */
+
+
+/* nav css ends */
+
+
+#main{
+    /* position: relative; */
 }
 
 
@@ -115,12 +111,13 @@
     margin-top: 40%;
     transform: rotate(0deg); */
     animation: comecar 2s ;
+    animation: car-exit 2s;
 }
-@keyframes comecar{
+/* @keyframes comecar{
     0%{left: 100vw;transform: rotate(90deg);margin-top: 20%;}
     70%{left: 4vw;transform: rotate(90deg);}
     80%{transform: rotate(180deg);margin-top: 20%;}
-}
+} */
 
 .check{
     width: 15vw;

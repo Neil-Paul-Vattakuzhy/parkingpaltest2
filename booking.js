@@ -22,7 +22,24 @@ function makecaranimation(loc,area){
         80%{transform: rotate(${locations[loc].angle});margin-top: 23.5%;}
     }`);
     car_animation.appendChild(movement);
+
+
+    let movement2=document.createTextNode(`@keyframes car-exit{
+        80%{transform: rotate(${locations[loc].angle});margin-top: 23.5%;}
+        70%{left: ${locations[loc].left};transform: rotate(90deg);}
+         0%{left: 100vw;transform: rotate(90deg);margin-top: 23.5%;}
+    }`);
+
+    car_animation.appendChild(movement2);
+
     document.getElementById(area).appendChild(car_animation)
+}
+
+
+function carexit(){
+    // makecaranimation(slot,parkarea)
+    // img.style.animation='car-exit 2s'
+    // setTimeout(function(){img.remove()}, 2000)
 }
 
 
@@ -62,6 +79,8 @@ function managepark(slot,zone){
     console.log(slotid)
     document.getElementById(slotid).style.backgroundColor="red";
     managecar(slot,zone,slotid)
+    // targetparklocation.style.animation = 'comecar 2s';
+    // document.getElementsByClassName('carup').style.animation='comecar 2s'
 }
 
 
@@ -88,6 +107,8 @@ function managecar(slot,zone,slotid){
     
     let parkarea=(zone=='j')?'park1':'park2'
     makecaranimation(slot,parkarea)
+    carexit();
+
     console.log(parkarea)
     // parkareawidth=document.getElementById(parkarea).offsetWidth
     // parkareaheight=document.getElementById(parkarea).offsetHeight
@@ -114,6 +135,14 @@ function managecar(slot,zone,slotid){
     // img.style.marginTop=`${locy}px`
     img.style.transform = `rotate(${locations[slot].angle})`;
     targetparklocation.prepend(img)
+    
+
+    //    img.style.animation='comecar 2s';
+       
+
+        // img.style.animation='car-exit 2s';
+    
+   
 
     
 
@@ -122,5 +151,6 @@ function managecar(slot,zone,slotid){
 
 }
 window.managepark = managepark
+
 
 

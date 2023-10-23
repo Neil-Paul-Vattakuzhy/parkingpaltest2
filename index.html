@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="booking.css">
+</head>
+<body>
+    <nav id="header">
+    
+        <a href="#"><img src="images/logo (1).png" alt="">Parking Pal</a>
+    
+        <div class="name">
+            <h3>Welcome to Parking Pal</h3>
+        </div>
+        <div>
+            <ul id="navbar">
+               
+                <li><button onclick="myfunction1()"  >Login</button>
+            </li>
+                <li>
+
+
+                <button onclick="myfunction()"  >Signup</button>
+
+                </li>
+
+               
+              
+            </ul>
+        </div>
+
+     
+    
+     </nav>
+     <main id="main">
+
+
+         <div class="popupsignup" >
+            <div class="popupsignupsection"   id="funk">
+                <div class="singupheading">
+                  <center>      <p>Signup</p>       </center>  
+                </div>
+                <hr style="padding: 1px; background: #000; margin-top: 5px;">
+                <form action="">
+                    <input type="text">
+                    <label for="E-mail">First Name</label>
+                    <br>
+                    <input type="text">
+                    <label for="E-mail">Last Name</label>
+                    <br>
+                    <input type="text">
+                    <label for="E-mail">E-mail</label>
+                    <br>
+                    <input type="text">
+                    <label for="E-mail">Username</label>
+                    <br>
+                    <input type="text">
+                    <label for="E-mail">Password</label>
+                    <br>
+                    <div class="btnforsign">
+                        <button>Signup</button>
+                    </div>
+                </form>
+            </div>
+           </div>  
+
+           <div class="popuplogin" >
+            <div class="popuploginsection"   id="funk1">
+                <div class="singupheading">
+                  <center>      <p>Login</p>       </center>  
+                </div>
+                <hr style="padding: 1px; background: #000; margin-top: 5px;">
+                <form action="">
+                   
+                    <input type="text">
+                    <label for="E-mail">E-mail</label>
+                    <br>
+                    <input type="text">
+                    <label for="E-mail">Username</label>
+                    <br>
+                    <input type="text">
+                    <label for="E-mail">Password</label>
+                    <br>
+                    <div class="btnforsign">
+                        <button>Login</button>
+                    </div>
+                </form>
+            </div>
+           </div>  
+       
+        <div class="mainsection">
+
+            <div class="right">
+                <div class="contentright">
+                    <h2>Parking Pal</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque ipsum minima iste nemo sapiente corporis ipsa maxime suscipit, repudiandae molestias blanditiis dolorum explicabo quam quos dolorem est eligendi modi dignissimos? Perferendis, rerum blanditiis?</p>
+                </div>
+
+            </div>
+            <div class="left">
+             <div class="leftcontent">
+                <div class="keftimag">
+                    <img  src="Parking-amico.png" alt="">
+                </div>
+             </div>
+            </div>
+        </div>
+      
+           
+    </main>
+    <script>
+        function myfunction(){
+    let pup = document.getElementById('funk');
+    if(pup.style.display==="none"){
+        pup.style.display = "block"
+    }
+    else{
+        pup.style.display = "none"
+
+    }
+
+}
+
+function myfunction1(){
+    let pup1 = document.getElementById('funk1');
+    if(pup1.style.display==="none"){
+        pup1.style.display = "block"
+    }
+    else{
+        pup1.style.display = "none"
+
+    }
+}
+
+    </script>
+</body>
+</html>

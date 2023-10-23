@@ -1,0 +1,188 @@
+.popupsignup{
+  
+}
+
+
+#funk{
+    display: none;
+    position: absolute;
+    top: 100px;
+    right: 0;
+    bottom: 0;
+    left: 50%;
+    height: 50%;
+    width: 40%;
+    border: 2px solid black;
+    padding: 10px;
+    background-color: rgb(235, 221, 221);
+}
+
+
+#funk1{
+    display: none;
+    position: absolute;
+    top: 100px;
+    right: 0;
+    bottom: 0;
+    left: 50%;
+    height: 40%;
+    width: 40%;
+    border: 2px solid black;
+    padding: 10px;
+    background-color: rgb(235, 221, 221);
+}
+
+
+.popuploginsection input{
+    width: 60%;
+    padding: 5px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 20px;
+}
+
+.popuploginsection label{
+    font-size: 20px;
+}
+
+.popuploginsection .btnforsign{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+   
+}
+
+.popuploginsection .btnforsign  button{
+    padding: 3px 12px 3px 12px;
+    font-size: 14px;
+
+}
+
+.popupsignupsection input{
+    width: 60%;
+    padding: 5px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 20px;
+}
+
+.popupsignupsection label{
+    font-size: 20px;
+}
+
+
+ .singupheading {
+    font-size: 20px;
+    margin-bottom: 10px;
+   
+}
+
+.popupsignupsection .btnforsign{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+   
+}
+
+.popupsignupsection .btnforsign  button{
+    padding: 3px 12px 3px 12px;
+    font-size: 14px;
+
+}
+
+
+
+
+#header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 80px;
+    /* background-color: #E3E6F3; */
+   /* box-shadow: 0 15px 15px rgba(0, 0, 0, 0.06); */
+   z-index: 999;
+   position: sticky;
+   left: 0;
+ top: 0;
+ /* padding: 10px; */
+}
+
+#navbar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#navbar li{
+    list-style: none;
+    padding: 0 20px;
+    /* position: relative; */
+    
+}
+
+#navbar li a{
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a1a1a;
+    transition: 0.3s ease;
+}
+
+#navbar li div{
+    height: 35px;
+    width: 35px;
+    
+    background-color: #1a1a1a;
+    border-radius: 50px;
+}
+
+
+
+
+#navbar li button{
+    text-decoration: none;
+    padding-left: 4px;
+    font-size: 14px;
+    padding: 3px 8px 3px 8px;
+    font-weight: 600;
+    color: #1a1a1a;
+    transition: 0.3s ease;
+}
+
+#header .name {
+    color: #e78631;
+
+}
+#header a{
+    text-decoration: none;
+    color: #e78631;
+    font-size: 25px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+
+#navbar li button:hover,
+#navbar li button.active{
+    color: #e78631;
+}
+
+
+#header .name h3:hover,
+#header .name h3.active{
+    color: #e78631;
+}
+
+#navbar li a.active::after,
+#navbar li a:hover::after
+{
+    content: "";
+    width: 30%;
+    height: 2px;
+    background: #e78631;
+    position: absolute;
+    bottom: -4px;
+    left: 20px;
+
+}

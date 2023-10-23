@@ -1,0 +1,42 @@
+.pre-bookingsection{
+    padding: 5px;
+}
+.preferencessection{
+    /* width: 100%; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 100px;
+
+
+}
+.bookbtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+
+.bookbtn button {
+    padding: 3px 20px 3px 20px ;
+    font-size: 20px;
+    border-radius: 10px;
+    border: 1px solid gray;
+
+}
+
+.bookbtn button:hover{
+    background-color: rgb(246, 203, 135);
+}
+
+
+
+.form-select{
+    width: 50%;
+   
+}
+
+
+
+
